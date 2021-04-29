@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>DOT-DOT</title>
+  <link rel="stylesheet" href="style.css"> </head>
+
+<body>
+  <div class="container">
+    <form class="form" method="POST" action="#">
+      <h1 class="form__title">FTL: Прямая машина</h1>
+      <div class="form-item form__part">
+        <div class="form-item__header"> <span class="form-item__num">1</span>
+          <h3 class="form-item__title">Маршрут</h3> </div>
+        <div class="form-item__fields">
+          <div class="form-action form-item__fields_field">
+            <p class="form-action__name">Откуда</p>
+            <input type="text" name="from" class="form-action__input" /> </div>
+          <div class="form-action form-item__fields_field">
+            <p class="form-action__name">Куда</p>
+            <input type="text" name="to" class="form-action__input" /> </div>
+        </div>
+      </div>
+      <div class="form-item form__part">
+        <div class="form-item__header"> <span class="form-item__num">2</span>
+          <h3 class="form-item__title">Транспорт</h3> </div>
+        <div class="form-item__fields form-item__fields_flex">
+          <div class="form-action form-item__fields_short">
+            <p class="form-action__name">Грузоподъёмность</p>
+            <input type="hidden" name="weight" value="" />
+            <div class="form-action__select">
+              <div class="form-action__arr">
+                <svg xmlns="http://www.w3.org/2000/svg" width="8" height="5" viewBox="0 0 8 5" fill="none">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M1 0L4 3L7 0L8 1L4 5L0 1L1 0Z" fill="black" /> </svg>
+              </div> <span class="form-action__val">Не выбрана</span>
+              <div class="form-action__list"> <span data-value="weight" data-val="" class="form-action__fakeoption form-action__fakeoption_not">Не выбрана</span> <span data-value="weight" data-val="var1" class="form-action__fakeoption">Вариант 1</span> <span data-value="weight" data-val="var2" class="form-action__fakeoption">Вариант 2</span> </div>
+            </div>
+          </div>
+          <div class="form-action form-item__fields_short">
+            <p class="form-action__name">Способ погрузки</p>
+            <input type="hidden" value="" name="cargo-way" />
+            <div class="form-action__select">
+              <div class="form-action__arr">
+                <svg xmlns="http://www.w3.org/2000/svg" width="8" height="5" viewBox="0 0 8 5" fill="none">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M1 0L4 3L7 0L8 1L4 5L0 1L1 0Z" fill="black" /> </svg>
+              </div> <span class="form-action__val">Не выбрано</span>
+              <div class="form-action__list"> <span data-value="cargo-way" data-val="" class="form-action__fakeoption form-action__fakeoption_not">Не выбрано</span> <span data-value="cargo-way" data-val="back" class="form-action__fakeoption">Задняя</span> <span data-value="cargo-way" data-val="front" class="form-action__fakeoption">Передняя</span> </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-item form__part">
+        <div class="form-item__header"> <span class="form-item__num">3</span>
+          <h3 class="form-item__title">Груз</h3> </div>
+        <div class="form-item__fields form-item__fields_flex form-item__fields_flexwrap">
+          <div class="form-action form-item__fields_field form-item__fields_long form-item__fields_change">
+            <p class="form-action__name">Тип груза</p>
+            <input type="hidden" value="" name="cargo-kind" />
+            <div class="form-action__select form-action__select_full">
+              <div class="form-action__arr">
+                <svg xmlns="http://www.w3.org/2000/svg" width="8" height="5" viewBox="0 0 8 5" fill="none">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M1 0L4 3L7 0L8 1L4 5L0 1L1 0Z" fill="black" /> </svg>
+              </div> <span class="form-action__val">Не выбран</span>
+              <div class="form-action__list"> <span data-value="cargo-kind" data-val="" class="form-action__fakeoption form-action__fakeoption_not">Не выбран</span> <span data-value="cargo-kind" data-val="var1" class="form-action__fakeoption">Вариант 1</span> <span data-value="cargo-kind" data-val="var2" class="form-action__fakeoption">Вариант 2</span> <span data-value="cargo-kind" data-val="var3" class="form-action__fakeoption">Вариант 3</span> <span data-value="cargo-kind" data-val="var4" class="form-action__fakeoption">Вариант 4</span> </div>
+            </div>
+          </div>
+          <div class="form-action form-item__fields_short form-item__fields_del">
+            <p class="form-action__name">Класс опасности</p>
+            <input type="hidden" value="" name="danger-class" />
+            <div class="form-action__select">
+              <div class="form-action__arr">
+                <svg xmlns="http://www.w3.org/2000/svg" width="8" height="5" viewBox="0 0 8 5" fill="none">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M1 0L4 3L7 0L8 1L4 5L0 1L1 0Z" fill="black" /> </svg>
+              </div> <span class="form-action__val">Не выбран</span>
+              <div class="form-action__list"> <span data-value="danger-class" data-val="" class="form-action__fakeoption form-action__fakeoption_not">Не выбран</span> <span data-value="danger-class" data-val="var1" class="form-action__fakeoption">Класс 5 — Окисляющие вещества и органические перекиси</span> <span data-value="danger-class" data-val="var2" class="form-action__fakeoption">Класс 3 — Окисляющие вещества</span> <span data-value="danger-class" data-val="var3" class="form-action__fakeoption">Класс 1 — Органические перекиси и окисляющие вещества</span> </div>
+            </div>
+          </div>
+          <div class="form-action form-item__fields_short form-item__fields_change">
+            <p class="form-action__name">Объявленная ценность, ₽</p>
+            <input type="text" name="money" value="" placeholder=">= 1" class="form-action__input form-action__input_small" /> </div>
+          <div class="form-action form-item__fields_long">
+            <label class="form-action__checkbox">
+              <input type="checkbox" name="temperature" class="form-action__input_hidden" /> <span class="form-action__span"></span> <span class="form-action__name form-action__name_checkbox">Требуется температурный режим</span> </label>
+          </div>
+          <div class="form-action form-item__fields_short form-item__fields_change form-item__fields_toggle">
+            <p class="form-action__name">От, °C</p>
+            <input type="text" name="temp-from" value="" class="form-action__input form-action__input_small" /> </div>
+          <div class="form-action form-item__fields_short form-item__fields_change form-item__fields_toggle">
+            <p class="form-action__name">До, °C</p>
+            <input type="text" name="temp-to" value="" class="form-action__input form-action__input_small" /> </div>
+        </div>
+      </div>
+      <div class="form-item form__part">
+        <div class="form-item__header"> <span class="form-item__num">4</span>
+          <h3 class="form-item__title">Время</h3> </div>
+        <div class="form-item__fields">
+          <div class="form-action form-item__fields_field">
+            <p class="form-action__name form-action__name_flex"><span>Когда прибыть на точку</span> <span>700 км в день</span></p>
+            <div class="form-action__time">
+              <input type="hidden" name="time-start" value="" class="form-action__input_hidden" />
+              <div class="form-action__state">
+                <svg xmlns="http://www.w3.org/2000/svg" class="form-action__light form-action__light_active" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M16 8C16 12.4183 12.4183 16 8 16C3.58172 16 0 12.4183 0 8C0 3.58172 3.58172 0 8 0C12.4183 0 16 3.58172 16 8ZM12 8C12 10.2091 10.2091 12 8 12C5.79086 12 4 10.2091 4 8C4 5.79086 5.79086 4 8 4C10.2091 4 12 5.79086 12 8Z" fill="white" /> </svg> <span>Адрес не указан</span> </div>
+              <div class="form-action__button-container">
+                <button class="form-action__button form-action__button_active">НЕ ВЫБРАНО</button>
+              </div>
+              <input type="text" id="input" name="date-from" class="form-action__date"> </div>
+            <div class="form-action__time">
+              <input type="hidden" name="time-end" value="" class="form-action__input_hidden" />
+              <div class="form-action__state">
+                <svg xmlns="http://www.w3.org/2000/svg" class="form-action__light" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M16 8C16 12.4183 12.4183 16 8 16C3.58172 16 0 12.4183 0 8C0 3.58172 3.58172 0 8 0C12.4183 0 16 3.58172 16 8ZM12 8C12 10.2091 10.2091 12 8 12C5.79086 12 4 10.2091 4 8C4 5.79086 5.79086 4 8 4C10.2091 4 12 5.79086 12 8Z" fill="white" /> </svg> <span>Адрес не указан</span> </div>
+              <div class="form-action__button-container">
+                <button class="form-action__button">НЕ ВЫБРАНО</button>
+              </div>
+              <input type="text" id="input1" name="date-to" class="form-action__date"> </div>
+          </div>
+          <div class="form-action form-item__fields_field">
+            <p class="form-action__name">Комментарий к заказу</p>
+            <textarea name="comment" placeholder="Укажите особенности въезда на территорию склада или подъезда к адресу" class="form-action__textarea"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="form__warning">Для расчета стоимости необходимо ввести параметры груза, пункты отправки и прибытия.</div>
+    </form>
+  </div>
+  <script src='script.js'></script>
+</body>
+
+</html>

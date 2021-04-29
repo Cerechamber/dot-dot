@@ -1,0 +1,358 @@
+@import "fonts";
+@import "../../node_modules/pickerjs/dist/picker";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+	font-family: 'HelveticaNeueCyr';
+	font-weight: normal;
+	background: #343539;
+	color: #fff;
+	padding-bottom: 90px;
+	@media (max-width: 768px) {
+		padding-bottom: 37px;
+	}
+}
+
+.container {
+	max-width: 1130px;
+	padding: 0 15px;
+	width: 100%;
+	margin: 0 auto 0 170px;
+	@media (max-width: 1400px) {
+		margin: 0 auto;
+	}
+}
+
+
+.form {
+	position: relative;
+	&__warning {
+		padding: 26px;
+		font-size: 15px;
+        line-height: 18px;
+        position: absolute;
+        right: 0;
+        top: 85px;
+        max-width: 356px;
+        background: #4B4B4F;
+        box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+        @media (max-width: 1150px) {
+	    position: static;
+      }
+	}
+	&__title {
+		margin-top: 40px;
+		font-weight: bold;
+        font-size: 56px;
+        line-height: 68px;
+        margin-bottom: 20px;
+	}
+	&__part {
+		margin-bottom: 40px;
+	}
+}
+.form-item {
+	&__header {
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+	}
+	&__num {
+		background: #EF483E;
+		width: 24px;
+		height: 24px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-weight: bold;
+        font-size: 16px;
+        border-radius: 50%;
+        line-height: 20px;
+        margin-right: 8px;
+	}
+	&__title {
+		font-weight: bold;
+        font-size: 24px;
+        line-height: 30px;
+	}
+	&__fields {
+		&_toggle {
+		display: none;
+	}
+		&_field {
+			margin-top: 15px;
+		}
+		&_long {
+			width: 100%;
+			margin-top: 15px;
+		}
+		&_short {
+			width: 100%;
+			max-width: 172px;
+			margin-top: 15px;
+		}
+		&_flex {
+			display: flex;
+			justify-content: space-between;
+			width: 100%;
+			max-width: 356px;
+		}
+		&_flexwrap {
+			flex-wrap: wrap;
+		}
+	}
+}
+.form-action {
+	&__date {
+		position: absolute;
+		left: -3000px;
+	}
+	&__arr {
+		position: absolute;
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		padding-right: 16px;
+		height: 44px;
+		right: 0;
+		top: 0;
+		width: 55px;
+		background: linear-gradient(
+90deg
+, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 35%, rgba(255,255,255,1) 100%);
+
+	}
+	&__button-container {
+        position: absolute;
+        display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		padding-right: 10px;
+		height: 44px;
+		right: 0;
+		top: 0;
+		width: 155px;
+		background: linear-gradient(
+90deg
+, rgba(75, 75, 79, 0) 0%, #4b4b4f 12%, #4b4b4f 100%);
+
+	}
+	&__val {
+		height: 100%;
+    display: flex;
+    align-items: center;
+    color: #CFCFCF;
+    white-space: nowrap;
+    overflow: hidden;
+	}
+	&__name {
+		font-size: 13px;
+        line-height: 16px;
+        margin-bottom: 8px;
+		&_checkbox {
+			font-size: 13px;
+            line-height: 16px;
+            vertical-align: super;
+            margin-left: 8px;
+		}
+		&_flex {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			max-width: 728px;
+			span:last-child {
+				color: #CFCFCF;
+			}
+		}
+	}
+	&__input {
+		height: 44px;
+		width: 100%;
+		max-width: 728px;
+		outline: none;
+		font-size: 15px;
+        line-height: 18px;
+        color: #000000;
+        padding-left: 15px;
+        border-color: #fff;
+		&_small {}
+		&_hidden {
+			position: absolute;
+			left: -3000px;
+			&:checked + span {
+              background-color: #EF483E;
+              border-color: #EF483E;
+              background-image: url(assets/img/checked.svg);
+              background-repeat: no-repeat;
+              background-position: center;
+			}
+		}
+	}
+	&__select {
+		height: 44px;
+		max-width: 172px;
+		width: 100%;
+		position: relative;
+		padding-left: 15px;
+		background-color: #fff;
+		cursor: pointer;
+		&_full {
+			width: 100%;
+			max-width: initial;
+		}
+	}
+	&__list {
+		position: absolute;
+		display: none;
+		background: #fff;
+		width: 100%;
+		left: 0;
+		top: 100%;
+		z-index: 100;
+	}
+	&__fakeoption {
+		display: block;
+		padding: 5px 12px 6px 12px;
+		font-size: 14px;
+        line-height: 17px;
+        color: #000000;
+        &:hover {
+        	color: #fff;
+        	background: #EF483E;
+        }
+		&_not {}
+	}
+	&__checkbox {
+		cursor: pointer;
+	}
+	&__span {
+		border: 2px solid #FFFFFF;
+		width: 24px;
+		height: 24px;
+		display: inline-block;
+	}
+	&__time {
+		background: #4B4B4F;
+		height: 44px;
+		width: 100%;
+		max-width: 728px;
+		margin-top: 4px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding-left: 12px;
+		padding-right: 10px;
+		position: relative;
+	}
+	&__state {
+		font-size: 15px;
+        line-height: 19px;
+        color: #CFCFCF;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        white-space: nowrap;
+        overflow: hidden;
+	}
+	&__light {
+		margin-right: 8px;
+		min-width: 16px;
+		&_active {
+			path {
+				fill: #EF483E;
+			}
+		}
+	}
+	&__button {
+		background: #717174;
+        border-radius: 2px;
+        font-weight: normal;
+        font-size: 13px;
+        line-height: 16px;
+        text-align: center;
+        letter-spacing: 0.05em;
+        cursor: pointer;
+        width: 119px;
+        height: 24px;
+        font-family: 'HelveticaNeueCyr';
+        opacity: 0.3;
+        outline: none;
+        border: 0;
+        color: #fff;
+		&_active {
+			opacity: 1;
+		}
+	}
+	&__textarea {
+		width: 100%;
+		max-width: 728px;
+		height: 80px;
+		font-size: 15px;
+        line-height: 18px;
+        padding: 14px;
+        outline: none;
+        &::placeholder {
+        	color: #CFCFCF;
+        }
+	}
+}
+
+.rotatearr {
+	svg {
+		transform: rotate(180deg);
+	}
+}
+
+
+
+@media (max-width: 768px) {
+
+.form {
+	&__title {
+		font-size: 32px;
+      line-height: 40px;
+	}
+}
+.form-item {
+	&__title {
+		font-size: 20px;
+       line-height: 24px;
+	}
+}
+}
+
+@media (max-width: 500px) {
+.form-item {
+	&__fields {
+		&_del {
+		display: none;
+	   }
+	   &_change {
+		width: 48.5%;
+	   }
+		&_flex {
+			max-width: initial;
+		}
+		&_short {
+			max-width: initial;
+			width: 48.5%;
+		}
+	}
+}
+.form-action {
+	&__name {
+		white-space: nowrap;
+	}
+	&__select {
+		max-width: initial;
+	}
+}
+
+
+}
+
